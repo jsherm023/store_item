@@ -12,25 +12,20 @@ class Guitar
   attr_reader :brand_name, :model_name, :item_year
   attr_writer :item_year
 
-  def initialize (input_brand_name, input_model_name, input_item_year)
-    @brand_name = input_brand_name
-    @model_name = input_model_name
-    @item_year = input_item_year
+  def initialize(instruments)
+    @brand_name = instruments[:brand_name]
+    @model_name = instruments[:model_name]
+    @item_year = instruments[:item_year]
 
   end
-
-  # def item_year=(input_year)
-  #   @item_year = input_year
-  # end
-
   def print_info
     p "#{brand_name} #{model_name} #{item_year}"
   end
 end
 
-    guitar1 = Guitar.new("Gibson", "Les Paul", "1989")
-    guitar2 = Guitar.new("Fender", "Stratocaster", "1992")
-    guitar3 = Guitar.new("Gibson", "SG", "1972")
+    guitar1 = Guitar.new({:brand_name => "Gibson", :model_name => "Les Paul", :item_year => 1986 })
+    guitar2 = Guitar.new({:brand_name => "Fender", :model_name => "Stratocaster", :item_year => 1992 })
+    guitar3 = Guitar.new({:brand_name => "Gibson", :model_name => "SG", :item_year => 1972 })
 
     guitar1.item_year = 2009
     p guitar1.item_year
